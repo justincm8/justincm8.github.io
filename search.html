@@ -23,7 +23,7 @@ code
 <h1>Sequential Search/Linear Search</h1>
 <p>Here's the linear search algorithm we learned last class, though it's a bit broken: it's missing the condition in the <code>if</code> statement and one other line. Try to fix it.</p>
 <div data-pym-src='https://www.jdoodle.com/plugin' data-language="java"
-    data-version-index="4" data-libs="mavenlib1, mavenlib2">public class Hello
+    data-version-index="4" data-libs="mavenlib1, mavenlib2">public class Search
 {
     public static void main(String[] args)
     {
@@ -32,7 +32,10 @@ code
         System.out.println("5 is at index: " + index);
     }
 
-    public static void linearSearch(int[] A, int T)
+    // Only edit the linearSearch function
+    // 1. Add a condition to the if statement
+    // 2. There is another line of code missing.
+    public static int linearSearch(int[] A, int T)
     {
         int n = A.length;
         int i = 0;
@@ -47,6 +50,26 @@ code
         return -1;
     }
 }
+</div>
+
+<h2>Binary Search</h2>
+We'll implement binary search together here.
+<div data-pym-src='https://www.jdoodle.com/plugin' data-language="java"
+    data-version-index="4" data-libs="mavenlib1, mavenlib2">public class Search
+{
+    public static void main(String[] args)
+    {
+        int[] nums = {12, 31, 36, 57, 62, 78, 81, 92};
+        int index = binarySearch(nums, 81);
+        System.out.println("5 is at index: " + index);
+    }
+
+    public static int binarySearch(int[] A, int T)
+    {
+        return -1;
+    }
+}
+</div>
 
 <script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"></script>
 
