@@ -21,14 +21,13 @@ code
 <body>
 
 <h1>Sequential Search/Linear Search</h1>
-<p>Complete each of the tasks below. Read the questions and run the interactive Java editor by pressing the "Execute" button or pressing Ctrl+Enter. Try it below!</p>
+<p>Here's the linear search algorithm we learned last class, though it's a bit broken: it's missing the condition in the <code>if</code> statement and one other line. Try to fix it.</p>
 <div data-pym-src='https://www.jdoodle.com/plugin' data-language="java"
     data-version-index="4" data-libs="mavenlib1, mavenlib2">public class Hello
 {
     public static void main(String[] args)
     {
-        int[] arr = { 13, 17, 21 }; // Declaring an array
-        System.out.println("The first element of the array is: " + arr[0]);
+        int[] nums = { 3 , 8, 1, 5, 8, 9 };
     }
 
     public static void linearSearch(int[] A, int T)
@@ -37,6 +36,7 @@ code
         int i = 0;
         while (i < n)
         {
+            // Enter the appropriate condition in the parentheses below
             if ( ) 
             {
                 return i;
