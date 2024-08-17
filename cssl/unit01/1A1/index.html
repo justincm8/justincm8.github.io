@@ -6,12 +6,16 @@
 
 		<title>reveal.js</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/theme/black.min.css">-->
+    <link rel="stylesheet" href="dist/theme/black.css"
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/zenburn.min.css">-->
 
 		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<!--<link rel="stylesheet" href="plugin/highlight/monokai.css">-->
 	</head>
 	<body>
 		<div class="reveal">
@@ -21,161 +25,22 @@
           <h2>§1.A.1. Variables and Types</h2>
         </section>
 
-				<section>
-          <h2>The Java Programming Language</h2>
-          <img data-src="Java-Logo.png" width="60%">
-
-          <p>To start, we'll be using a simplified version of Java.</p>
-        </section>
-
         <section>
           The minimal "real" Java program:
           <pre class="fragment">
-            <code data-trim data-noescape data-line-numbers>
-            public class Hello {
-              public static void main(String[] args) {
-                System.out.println("Hello, world!");
-              }
-            }
+            <code class="hljs language-java" data-trim data-noescape data-line-numbers>
+public class Hello {
+  public static void main(String[] args) {
+    System.out.println("Hello, world!");
+  }
+}
           </code>
         </pre>
         </section>
 
         <section>
-          <h2>Hello, World!</h2>
-          <p>Our first Java Program</p>
+          <h2>Test 2</h2>
           <iframe width="100%" height="400" frameBorder="none" data-src="https://www.jeed.run?embed=true&language=java&editorHeight=12&contents=U3lzdGVtLm91dC5wcmludGxuKCJIZWxsbyEiKTs%253D"></iframe>
-        </section>
-
-        <section>
-          Try running this code, then fix it!
-          <iframe width="100%" height="480" frameBorder="none" data-src="https://www.jeed.run?embed=true&language=java&editorHeight=12&contents=U3lzdGVtLm91dC5wcmludGxuKCJIaSBUaGVyZSEiKTsK1CFJIGhvcGUgeW91IGhhdmUgYSBuaWNlIGRheSHXMkdvb2RiecRS"></iframe>
-        </section>
-
-        <section>
-            <h2>Variables</h2>
-            <iframe width="100%" height="280" frameBorder="none" data-src="https://www.jeed.run?embed=true&language=java&editorHeight=12&contents=aW50IG51bSA9IDA7"></iframe>
-            <div style="text-align: left;" class="fragment r-fit-text">
-              <p>Three things are happening here:</p>
-              <ol>
-                <li class="fragment">We are telling the computer that we are going to store data in a variable named <code>num</code>.</li>
-                <li class="fragment">We tell the computer that the variable <code>num</code> will store integer data (<code>int</code>).</li>
-                <li class="fragment">The initial value of <code>num</code> is set to zero.</li>
-              </ol>
-            </div>
-          <aside class="notes">
-            <ol>
-              <li>Add a print statement. Point out that we don't use quotes around the variable. What would happen if we did?</li>
-              <li>Advance fragments, describe the three things going on.</li>
-              <li>Change the initial value.</li>
-              <li>Modify after printing, print again.</li>
-              <li>Add a new variable.</li>
-            </ol>
-          </aside>
-        </section>
-
-        <section>
-          <h3>Declaration and Initialization</h3>
-          <iframe width="100%" height="280" frameBorder="none" data-src="https://www.jeed.run?embed=true&language=java&editorHeight=12&contents=aW50IGk7IC8vIERlY2xhcmUgYSB2YXJpYWJsZSBuYW1lZCBpIHRoYXQgc3RvcmVzIGludGVnZXJzCmkgPSAwxTpJbml0aWFsaXplIHRoZSB2YWx1ZSBvZsQ5byB6ZXJvLgpTeXN0ZW0ub3V0LnByaW50bG4oaSk7"></iframe>
-
-          <div style="text-align: left;" class="r-fit-text">
-            <ul>
-              <li class="fragment"><b>Declaration:</b> Telling the computer to reserve some space to store some data an associate it with a label.</li>
-              <li class="fragment"><b>Initialization:</b> Setting the initial value stored by the variable.</li>
-              <li class="fragment">It's generally considered bad practice to do these as separate steps.</li>
-            </ul>
-          </div>
-
-          <aside class="notes">
-            <ol>
-              <li>Remove the initialization step; Java will complain (local variables can not be uninitialized). </li>
-              <li>Good time to introduce the physical model.</li>
-              <li> It's bad practice to do these as separate steps. </li>
-            </ol>
-          </aside>
-        </section>
-
-        <section>
-          <h2>Types</h2>
-          <div style="text-align: left;">
-          Data in Java is represented by combinations of 8 different types known as the Java <em>primitive types</em>. We will use the following four in this course. You can read about the others <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/datatypes.html" target="_blank">here</a>.
-            <ul class="r-fit-text">
-              <li><b><code>int</code>:</b> represents integer values.</li>
-              <li><b><code>double</code>:</b> represents floating point (decimal) values.</li>
-              <li><b><code>boolean</code>:</b> represents whether something is true or false.</li>
-              <li><b><code>char</code>:</b> represents a single character.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section>
-          <h3><code>int</code></h3>
-          <iframe width="100%" height="200" frameBorder="none" data-src="https://www.jeed.run?embed=true&language=java&editorHeight=6&contents=aW50IG15RmF2TnVtID0gN8UBOwpTeXN0ZW0ub3V0LnByaW50bG4oyCYpOw%253D%253D"></iframe>
-          <ul style="text-align: left" class="r-fit-text">
-            <li>Represents an <em>integer</em>, a number wihtout a decimal component.</li>
-            <li>Can store values from -2,147,483,648 to 2,147,483,647.</li>
-          </ul>
-
-          <aside class="notes">
-            <ol>
-              <li>Show <code>short</code> and <code>long</code>.</li>
-            </ol>
-          </aside>
-        </section>
-
-        <section>
-          <h3><code>double</code></h3>
-          <iframe width="100%" height="200" frameBorder="none" data-src="https://www.jeed.run?embed=true&language=java&editorHeight=6&contents=ZG91YmxlIHRlbXBlcmF0dXJlID0gMzIuNTsKU3lzdGVtLm91dC5wcmludGxuKMsnKTs%253D"></iframe>
-          <ul style="text-align: left" class="r-fit-text">
-            <li>Stores a <em>floating point</em> value (numbers with decimal values).</li>
-          </ul>
-        </section>
-
-        <section>
-          <h3><code>boolean</code></h3>
-          <iframe width="100%" height="200" frameBorder="none" data-src="https://www.jeed.run?embed=true&language=java&editorHeight=6&contents=Ym9vbGVhbiB0b2RheUlzU2F0dXJkYXkgPSBmYWxzZTsKU3lzdGVtLm91dC5wcmludGxuKM8sKTs%253D"></iframe>
-          <div style="text-align: left">
-            <ul style="font-size: 24pt; text-align: left">
-              <li>Can only have one of two values: <code>true</code> or <code>false</code>.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section>
-          <h3><code>char</code></h3>
-          <iframe width="100%" height="240" frameBorder="none" data-src="https://www.jeed.run?embed=true&language=java&editorHeight=10&contents=Y2hhciBsZXR0ZXIgPSAneCc7CsUTbnVtZXJhbMQUOcgUbW9uZXnEEiQnOwpTeXN0ZW0ub3V0LnByaW50bG4oxkcp1RzHUNYdxVkpOw%253D%253D"></iframe>
-          <div style="text-align: left">
-            <ul style="font-size: 24pt; text-align: left">
-              <li>Represents a single character value.</li>
-              <li>Must be encolsed in <em>single quotes</em> not double.</li>
-            </ul>
-          </div>
-        </section>
-
-
-        <section>
-          <h2>Literals</h2>
-          <pre>
-            <code data-trim data-noescape data-line-numbers class="language-java" style="font-size: 14pt">
-                int i = 10; // 10 is a literal, i is a variable
-                double threshold = 0.5; // 0.5 is a literal, threshold is a variable
-                boolean isACat = true; // true is a literal, isACat is a variable
-                char favorite = '8'; // 8 is a literal, favorite is a variable
-            </code>
-        </pre>
-
-          <div style="text-align: left">
-            <ul>
-              <li> A literal is a value that appears directly in your code.</li>
-            </ul>
-
-          </div>
-        </section>
-
-        <section>
-          <h2>Why Types?</h2>
-          <p>Why use types? It helps us write correct programs.</p>
-          <iframe width="100%" height="300" frameBorder="none" data-src="https://www.jeed.run?embed=true&language=java&editorHeight=6&contents=aW50IGkgPSA3OwrEBzEwLjg7ClN5c3RlbS5vdXQucHJpbnRsbihpKTs%253D"></iframe>
         </section>
 
 
@@ -183,11 +48,11 @@
 		</div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/5.1.0/reveal.min.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/notes/notes.js"></script>
     <!--
 		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
     <script src="plugin/math/math.js"></script>
     -->
 		<script>
@@ -198,9 +63,16 @@
 				hash: true,
         showNotes: false,
         pdfSeparateFragments: false,
+        dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				],
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+        plugins: [RevealHighlight, RevealNotes]
+				//plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
 			});
 		</script>
 	</body>
