@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>reveal.js</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/black.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+  <style>
+    section {
+      text-align: left;
+    }
+
+    p,
+    ul,
+    ol,
+    li {
+      font-size: 20pt;
+    }
+
+    aside ul,
+    ol {
+      font-size: 18pt;
+    }
+
+    code {
+      color: orchid;
+    }
+
+    .row {
+      display: flex;
+    }
+
+    .column {
+      flex: 50%
+    }
+
+    tr,
+    td {
+      font-size: 24px;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>§3.D.2. Interfaces</h1>
+        <p style="font-size: 12pt">Adapted from <a href="https://www.learncs.online/lessons/java/usinginterfaces"
+            target="_blank">Using Interfaces</a>.</p>
+      </section>
+
+      <section>
+        <h3><code>List</code>s and Interfaces</h3>
+        <li>Remember when we declared a <code>List</code> with <code>List</code> on the left, but <code>ArrayList</code> on the right?</li>
+        <iframe width="100%" height="220" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=6&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF53BxzOwoKxCA8U3RyaW5nPiBsaXN0ID0gbmV3IMk9PD4oKTs%253D"></iframe>
+        <li class="fragment">We said that <code>List</code> defined an <em>interface</em> (what a list should be able to do) while <code>ArrayList</code> defined a concrete <em>implementation</em> of this interface (how to do it).</li>
+      </section>
+
+      <section>
+        <h3><code>abstract</code> classes</h3>
+        <li>Before we get into interfaces, we need to talk about another Java concept: <code>abstract</code>, a modifier that we can apply to classes and methods.</li>
+        <li class="fragment">Consider the classes below:</li>
+        <iframe width="100%" height="320" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=9&contents=cHVibGljIGNsYXNzIFNoYXBlIHsgfQrNF0NpcmNsZSBleHRlbmTZJlNxdWFy1CYKx0Bjxgc9IG5ld8dUKCk7IC8vIExvb2tzIGdvb2QhCsY4c8ZNxizGWscsT29oIHBvbHltb3JwaGlzbckyyC3EDscsRG9lcyBpdCByZWFsbHkgbWFrZSBzZW5zZSB0byBpbnN0YW50aWF0ZSBhICJzxDgiPw%253D%253D"></iframe>
+        <li>Notice how it probably doesn't make a lot of sense to create instances of the <code>Shape</code> class. We really only want to allow the user to instantiate the child classes.</li>
+      </section>
+
+      <section>
+        <h3><code>abstract</code> classes</h3>
+        <li>By declaring <code>Shape</code> as <code>abstract</code> we can prevent the user from creating instances of <code>Shape</code>.</li>
+        <iframe width="100%" height="320" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=8&contents=cHVibGljIGFic3RyYWN0IGNsYXNzIFNoYXBlIHsgfQrHIMYXQ2lyY2xlIGV4dGVuZNkmU3F1YXLUJgrHQGPGBz0gbmV3x1QoKTsgLy8gTm8gcHJvYiEKxjVzxkrGKcZXxylTdGlsbCB3b3Jrcywgbm90IGluc3RhbnRpYXRpbmcgYcZ2yEfIQsQOx0FFcnJvciE%253D"></iframe>
+      </section>
+
+      <section>
+        <h3><code>abstract</code> methods</h3>
+        <li>Inside an <code>abstract</code> class, we declare methods as <code>abstract</code> and omit their body.</li>
+        <li>Inside a child class, we must override <code>makeNoise</code> and provide an actual implementation.</li>
+        <iframe width="100%" height="340" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=12&contents=cHVibGljIGFic3RyYWN0IGNsYXNzIEFuaW1hbCB7CiAg0CF2b2lkIG1ha2VOb2lzZSgpOwp9CsckxjxDb3cgZXh0ZW5k1EjQP8UcICBTeXN0ZW0ub3V0LnByaW50bG4oIk1PTyIpOwogIH0KfQoKx0tiZXNzaWUgPSBuZXfEa%252BQAgcYULstWOw%253D%253D"></iframe>
+        <li class="fragment">Notice that if we remove the <code>makeNoise</code> method from <code>Cow</code>, we get an error; <code>abstract</code> methods must be overriden!</li>
+      </section>
+
+      <section>
+        <h3>Interface vs. <code>interface</code></h3>
+        <li>An interface is a general programming concept and an <code>interface</code> is a specific programming construct in Java.</li>
+        <li>Generally an interface is just a way of interacting with some code.</li>
+        <li>A <code>class</code>'s interface is its <code>public</code> methods.</li>
+        <iframe width="100%" height="400" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=13&id=986eaf24-6cef-429f-89d1-911e31c150da&contents=cHVibGljIGNsYXNzIENvdXJzZSB7CiAgcHJpdmF0ZSBTdHJpbmcgZGVwYXJ0bWVudDvSHW51bWJlcsUZxk7GSCjHH3NldETJPyzINXNldE7FOCnFcCDLYyA9zjTEWiDHZsYcxjrEGH3KdsdZZ8w7KMhecmV0dXJuy2XWPclc0DnqAOR9Cn0%253D"></iframe>
+        <li>The interface of the <code>Course</code> class includes the constructor, <code>getDepartment</code>, <code>setNumber</code>.</li>
+      </section>
+
+      <section>
+        <h3><code>interface</code></h3>
+        <li>An <code>interface</code> lets us create a contract; a guarantee that a class with implement certain methods.</li>
+        <iframe width="100%" height="440" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=12&contents=cHVibGljIGludGVyZmFjZSBZYXBwZXIgewogIHZvaWQgeWFwKFN0cmluZyBzKTsKfQoKxzNjbGFzcyBTdHVkZW50IGltcGxlbWVudHPMQscr0El3b3JkKcUhICBTeXN0ZW0ub3V0LnByaW50bG4oxB8gK8UmxwcpOwogIH3EfchweW91ID0gbmV36ACCKCk7CnlvdS7EZyJmb3J0bml0ZSIpOw%253D%253D"></iframe>
+        <li>All methods declared in an <code>interface</code> are <code>abstract</code> and <code>public</code>.</li>
+      </section>
+
+      <section>
+        <h3><code>interface</code></h3>
+        <li>When we create a class that <code>implements</code> an <code>interface</code>, it must override all of the interfaces methods. </li>
+        <iframe width="100%" height="480" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=15&id=35032c54-8dfd-463a-9daa-93a077c6fdef&contents=cHVibGljIGludGVyZmFjZSBZYXBwZXIgewogIHZvaWQgeWFwKFN0cmluZyBzKTvLFnBlcm9uaUFuZENoZWVzZcwlfQoKx1hjbGFzcyBTdHVkZW50IGltcGxlbWVudHPMZ8cr0G53b3JkKcUhICBTeXN0ZW0ub3V0LnByaW50bG4oxB8gK8UmxwflAJ59xH3IcHlvdSA9IG5ld%252BgAgigpOw%253D%253D"></iframe>
+      </section>
+
+      <section>
+        <h3>Try it!</h3>
+        <li>Consider the following <code>interface</code>, which describes objects that should be comparable. Let's complete <code>Student</code>.</li>
+        <iframe width="100%" height="520" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=18&id=f9415f8f-4c38-47b7-8f95-57f3fbe916db&contents=cHVibGljIGludGVyZmFjZSBvdXJDb21wYXJhYmxlIHsKICAvLyBSZXR1cm5zIGEgbmVnYXRpdmUsIHplcm8sIG9yIGEgcG9zacYVxEhnZXIgYXMgdGhpcyBvYmplY3TGRWlzIGxlc8QZYW4sIGVxdWFsIHTGQ2dyZWF0ZXLFGyB0aGXHOCBpxg5hcmd1bWVudC4KIMRiIGPlAKFlVG8oT8Yobyk7Cn0K5wDMY2xhc3MgU3R1ZGVudCBpbXBsZcQ9c%252FMA28cyZG91xBJncGE75ACpZm9yZ29pbmcgZW5jYXBzdWxhdGlvbsQXIHPET2ljdHkKIMhiKMo%252BKSB75QD3LmdwYSA9xlB9ymf3ALvlAIogIGlmICghKG8gaW5zdGFuY2VvZshiKcgjICB0aHJvdyBuZXcgSWxsZWdhbEHnARtFeGNlcOQApygpO8UsxHjpAKQgb3RoZXIgPSAoyFMgb8YnLy8g5AEUbGV0ZeUAuyEKxDt9CgrIOuQAycRwxxAoNC4wKTvJHmLPHjIuOcQeeXN0ZW0ub3V0LnByaW50bG4oYS7qAPpiKSk7"></iframe>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/math/math.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      backgroundTransition: 'none', // none/fade/slide/convex/concave/zoom
+      history: true,
+      slideNumber: 'h.v',
+      margin: 0.04,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+    });
+  </script>
+</body>
+
+</html>
