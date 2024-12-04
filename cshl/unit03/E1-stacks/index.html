@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>reveal.js</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/black.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+  <style>
+    section {
+      text-align: left;
+    }
+
+    p,
+    ul,
+    ol,
+    li {
+      font-size: 20pt;
+    }
+
+    aside ul,
+    ol {
+      font-size: 18pt;
+    }
+
+    code {
+      color: orchid;
+    }
+
+    .row {
+      display: flex;
+    }
+
+    .column {
+      flex: 50%
+    }
+
+    tr,
+    td {
+      font-size: 24px;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>§3.E.1. Stacks</h1>
+        <!--<p style="font-size: 12pt">Adapted from <a href="https://www.learncs.online/lessons/java/usinginterfaces"
+            target="_blank">Using Interfaces</a>.</p>
+        -->
+      </section>
+
+      <section>
+        <h3>Stack</h3>
+        <li>Stacks are data structures that can be visualized as... a stack of elements.</li>
+        <li>Elements are "pushed" onto the top of the stack and "popped" off the top.</li>
+        <li>Because of this, a stack is referred to as a "first-in-last-out" (FILO) data structure.</li>
+        <img data-src="stack.webp">
+      </section>
+
+      <section>
+        <h3>A stack <code>interface</code></h3>
+        <li>Here is a very simple stack <code>interface</code>.</li>
+        <li>These are stack methods IB recognizes.</li>
+        <iframe width="100%" height="380" frameBorder="none"
+          data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=12&contents=cHVibGljIGludGVyZmFjZSBTdGFjazxUPiB7CiAgLy8gQWRkIGEgdmFsdWUgdG8gdGjEB3Agb2bFC3PELi4KICB2b2lkIHB1c2goVMYtKTsKICDGQ1JlbW92ZcUwbGFzdCBlbGVtZW50IGFkZGVkyFXFSiBhbmQgcmV0dXJuIGl0xFhUIHBvcCjNTcQecyB3aGV0aGVyyzxjb250YWlucyBhbnnIZHMgb3Igbm%252FFS2Jvb2xlYW4gaXNFbXB0ecRVfQ%253D%253D"></iframe>
+      </section>
+
+      <section>
+        <section>
+          <h3>Java's Stack</h3>
+          <li>Java has a built-in implementation of a stack we can import. (<a
+              href="https://docs.oracle.com/javase/8/docs/api/java/util/Stack.html" target="_blank">documentation
+              here</a>) </li>
+          <li>It provides a single no-argument constructor that creates an empty stack.</li>
+          <li>Let's use the <code>push</code> and <code>pop</code> method to add and remove elements from the stack.
+          </li>
+          <iframe width="100%" height="480" frameBorder="none"
+            src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=15&contents=aW1wb3J0IGphdmEudXRpbC5TdGFjazsKCsUIPFN0cmluZz4gc3R1ZGVudHMgPSBuZXcgxh0%252BKCk7"></iframe>
+        </section>
+
+        <section>
+          <h3>Completed Example</h3>
+          <iframe width="100%" height="480" frameBorder="none"
+            data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=15&contents=aW1wb3J0IGphdmEudXRpbC5TdGFjazsKCsUIPFN0cmluZz4gc3R1ZGVudHMgPSBuZXcgxh0%252BKCk7CsgaLnB1c2goInRpbSLSFmFuZHJld9MZaGVucmlrxBnGaiB0b3AgPclvLnBvcMRlU3lzdGVtLm91dC5wcmludGxuKHRvcNYZzjwpOw%253D%253D"></iframe>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3><code>isEmpty</code></h3>
+          <li>The <code>isEmpty()</code> method lets us test if a stack is empty.</li>
+          <li>We can use this as a condition in a <code>while</code> loop to pop elements unitl a stack is empty.</li>
+          <iframe width="100%" height="480" frameBorder="none"
+            data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=15&id=31653b3c-2b02-4ea3-912b-4fa49fa27bad&contents=aW1wb3J0IGphdmEudXRpbC5TdGFjazsKCsUIPEludGVnZXI%252BIG51bWJlcsUVID0gbmV3IMYhPigpOwovLyBHZW5lcmF0ZSBhIHJhbmRvbSBpxjsgYmV0d2VlbiAzIGFuZCAxMgppbnQgbiA9IChpbnQpICgxMCAqIE1hdGguxjkoKSArIDMpOwpmb3LFJCBpID0gMDsgaSA8IG47IGkrKykgewog7ACTLnB1c2goaSk7Cn0K5ACORW1wdHkgdGhlIHPEHw%253D%253D"></iframe>
+        </section>
+        <section>
+          <iframe width="100%" height="520" frameBorder="none" src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=15&id=2dc34d20-2b85-415c-a6da-0870c751629f&contents=aW1wb3J0IGphdmEudXRpbC5TdGFjazsKCsUIPEludGVnZXI%252BIG51bWJlcsUVID0gbmV3IMYhPigpOwovLyBHZW5lcmF0ZSBhIHJhbmRvbSBpxjsgYmV0d2VlbiAzIGFuZCAxMgppbnQgbiA9IChpbnQpICgxMCAqIE1hdGguxjkoKSArIDMpOwpmb3LFJCBpID0gMDsgaSA8IG47IGkrKykgewog7ACTLnB1c2goaSk7Cn0K5ACORW1wdHkgdGhlIHPEHwp3aGlsZSAoIcwzaXPFJigpxk5TeXN0ZW0ub3V0LnByaW50bG4ozWFvcCgpxGA%253D"></iframe>
+        </section>
+      </section>
+
+      <section>
+        <h3><code>peek</code></h3>
+        <li>Java also gives us the <code>peek()</code> method which returns the element at the top of the stack without
+          removing it.</li>
+        <iframe width="100%" height="480" frameBorder="none"
+          data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=15&id=c2e13437-74d0-45e5-9c4c-5d6d668b9f3c&contents=aW1wb3J0IGphdmEudXRpbC5TdGFjazsKCsUIPEludGVnZXI%252BIG51bXMgPSBuZXcgxho%252BKCk7Ci8vIEZpbGwgdGhlIHPEFyB3aXRoIDEwIHJhbmRvbSBpbnRzCmZvciAoaW50IGkgPSAwOyBpIDwgMcQIKyspIHsKIMQmIHIgPcUlKSAoTWF0aC7GQSgpICogMTAwKTsKIOUAhC5wdXNoKHIpOwp9xH5QZWVrIGF05QCBdG9wIHZhbHVlCsRQxA49xzNlZWvkAK5TeXN0ZW0ub3V0LnByaW50bG4oIlTHOWlzICIgK8QL5gDXTm93IHdoZW4gd2UgcG9wLMQIcmVtb3ZlxWzFaMQUanVzdCDEYWVk1WBKxCDGOWTFYuYAkm9wKCkpOw%253D%253D"></iframe>
+      </section>
+
+      <section>
+        <section>
+          <h3>Reverse a <code>String</code> with a Stack</h3>
+          <li>As practice, let's reverse a <code>String</code> using a stack.</li>
+          <iframe width="100%" height="480" frameBorder="none"
+            data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=15&id=417d548a-6a65-40d2-829d-92e73f48089a&contents=aW1wb3J0IGphdmEudXRpbC5TdGFjazsKClN0cmluZyByZXZlcnNlKMcPaW5wdXQpIHsKICBjaGFyW13FB2FjdGVycyA9xh8udG9DaGFyQXJyYXkoKTsKfQoKYXNzZXJ0yU0idG9tYXRvIikuZXF1YWxzKCJvdGFtb3QiKTvRK2NhdMsodGFj1CVtZW93yyZ3b2Vt1CdhyyRh1CHLICIpOw%253D%253D"></iframe>
+        </section>
+        <section>
+          <iframe width="100%" height="580" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=15&contents=aW1wb3J0IGphdmEudXRpbC5TdGFjazsKClN0cmluZyByZXZlcnNlKMcPaW5wdXQpIHsKICBjaGFyW13FB2FjdGVycyA9xh8udG9DaGFyQXJyYXkoKTsKICDFVDzEFcUqPiBzxBEgPSBuZXfHHT7GKmZvciAoxFMgYyA6y1zGcyDGOS5wdXNoKGPFMX3FX%252BUAnOQAgSIixBV3aGlsZSAoIcYuaXNFbXB0eSgpyUUgKz3ISm9wxnnESHJldHVybiBzOwp9Cgphc3NlcnTpAQAidG9tYXRvIikuZXF1YWxzKCJvdGFtb3QiKTvRK2NhdMsodGFj1CVtZW93yyZ3b2Vt1CdhyyRh1CHLICIpOw%253D%253D"></iframe>
+        </section>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/math/math.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      backgroundTransition: 'none', // none/fade/slide/convex/concave/zoom
+      history: true,
+      slideNumber: 'h.v',
+      margin: 0.04,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+    });
+  </script>
+</body>
+
+</html>
