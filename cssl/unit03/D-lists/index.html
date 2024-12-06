@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>reveal.js</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/black.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+  <style>
+    section {
+      text-align: left;
+    }
+
+    p,
+    ul,
+    ol,
+    li {
+      font-size: 20pt;
+    }
+
+    aside ul,
+    ol {
+      font-size: 18pt;
+    }
+
+    code {
+      color: orchid;
+    }
+
+    .row {
+      display: flex;
+    }
+
+    .column {
+      flex: 50%
+    }
+
+    tr,
+    td {
+      font-size: 24px;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>§3.D.1. Lists</h1>
+        <p style="font-size: 12pt">Adapted from <a href="https://www.learncs.online/lessons/java/lists#lists"
+            target="_blank">Lists</a>.</p>
+      </section>
+
+      <section>
+        <h3>Static Data Structures</h3>
+        <li>The arrays that we have seen so far are <em>static</em> data structures.</li>
+        <li>That means their size (the number of elements they can contain) can not be changed after they are created.</li>
+        <iframe width="100%" height="180" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=8&contents=Ly8gdmFsdWVzIHdpbGwgb25seSBldmVyIHN0b3JlIDMgZWxlbWVudHMKaW50W13ILT0gezEsIDIsIDN9Ow%253D%253D"></iframe>
+        <li class="fragment">By contrast, a <em>dynamic</em> data structure can change size.</li>
+      </section>
+
+      <section>
+        <h3>Lists</h3>
+        <li>You can think of a list as a dynamic array; its size <em>can</em> change.</li>
+        <li>Here's how we create a list :</li>
+        <iframe width="100%" height="210" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=5&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF5xhwKxAc8U3RyaW5nPiBuYW1lcyA9IG5ldyDJJcgeKCk7"></iframe>
+        <li class="fragment">Since a list can contain Objects of different types, we use a <em>type parameter</em> (<code>&ltString&gt</code>) to tell Java what we plan on storing in the list.</li>
+        <div class="fragment">
+          <li>We could actually omit the type parameter on the right side of the assignment. Java can infer it from the left side. </li>
+          <iframe width="100%" height="210" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=5&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF5xhwKxAc8U3RyaW5nPiBuYW1lcyA9IG5ldyDJJTw%252BKCk7"></iframe>
+
+        </div>
+      </section>
+
+      <section>
+        <h3><code>List</code> vs. <code>ArrayList</code></h3>
+        <li>Okay, why is there <code>List</code> on the left side of the assignment but <code>ArrayList</code> on right side?</li>
+        <iframe width="100%" height="210" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=5&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF5xhwKxAc8U3RyaW5nPiBuYW1lcyA9IG5ldyDJJTw%252BKCk7"></iframe>
+        <li class="fragment"><code>List</code> refers to an <em>interface</em>, a guide that determines the operations we can perform on a <code>List</code>, like adding and removing elements, but does not contain any actual <em>implementation</em>.</li>
+        <li class="fragment">That is, the <code>List</code> interface defines <em>what</em> a <code>List</code> can do (what methods it should have) but not <em>how</em> it will do it.</li>
+        <li class="fragment">On the other hand, <code>ArrayList</code> defines an actual <em>implementation</em> of a <code>List</code> (using an array).</li>
+        <li class="fragment">That is, under the hood, a <code>List</code> uses an array to store elements.</li>
+        <li class="fragment">Using an array isn't the only way to implement a list as we'll see later.</li>
+      </section>
+
+      <section>
+        <h3>Adding Elements to a List</h3>
+        <li>We can use <code>add</code> to add elements to the end of a <code>List</code>, increasing its size.</li>
+        <iframe width="100%" height="380" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=11&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF5xhwKxAc8U3RyaW5nPiBuYW1lcyA9IG5ldyDJJTw%252BKCk7ClN5c3RlbS5vdXQucHJpbnRsbijFLik7CsUILmFkZCgiYWxpY2Ui3y%252FKL2JvYsQtyxJjaGFybGnfQw%253D%253D"></iframe>
+        <li class="fragment">Notice that to print a <code>List</code>... we can just print it!</li>
+      </section>
+
+      <section>
+        <h3>Length of a <code>List</code></h3>
+        <li>Take a guess about how we get the length of a list: is it <code>.length()</code>? <code>.length</code>?</li>
+        <div class="fragment">
+          <li>It's neither! Use <code>.size()</code> to get the number of elements</li>
+          <iframe width="100%" height="380" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=10&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF5xhwKxAc8U3RyaW5nPiBuYW1lcyA9IG5ldyDJJTw%252BKCk7ClN5c3RlbS5vdXQucHJpbnRsbijFLi5zaXplKCkpOwrGD2FkZCgiYWxpY2UizhRib2LPEmNoYXJsacUo314pOw%253D%253D"></iframe>
+        </div>
+      </section>
+
+      <section>
+        <h3>Initializing a <code>List</code></h3>
+        <li>We know how to initialize an array with default values: </li>
+        <iframe width="100%" height="160" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=2&contents=U3RyaW5nW10gbmFtZXMgPSB7ImFsaWNlIiwgImJvYsQHY2hhcmxpZSJ9Ow%253D%253D"></iframe>
+        <div class="fragment">
+          <li>To initialize a <code>List</code> with default values, it's quite a bit harder. We actually have to <code>import</code> the <code>java.util.Arrays</code> library:</li>
+
+          <iframe width="100%" height="280" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=6&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF53BxzOwoKxCA8U3RyaW5nPiBuYW1lcyA9IG5ldyDJPjw%252BKMYuLmFzxBAoImEiLCAiYm9ixAdjIikpOw%253D%253D"></iframe>
+        </div>
+      </section>
+
+      <section>
+        <h3>Try it!</h3>
+        <ol>
+          <li>Initialize a <code>List</code> of <code>Strings</code> that contains the elements <code>"Dog"</code> and <code>"Cat"</code> (don't forget the imports!).</li>
+          <li>Then use <code>add</code> to add <code>"Lizard"</code> to the <code>List</code>.</li>
+          <li>Then print out the size of the list.</li>
+        </ol>
+        <iframe width="100%" height="440" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=22&contents=Ly8gRG9uJ3QgZm9yZ2V0IHRoZSBpbXBvcnRzIQ%253D%253D"></iframe>
+      </section>
+
+      <section>
+        <h3>List Get and Set</h3>
+        <li>We can't use bracket notation (like <code>names[i]</code>) with <code>List</code>s.</li>
+        <li>Instead we use <code>get</code> and <code>set</code> methods.</li>
+        <iframe width="100%" height="400" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=10&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF53BxzOwoKxCA8U3RyaW5nPiBsaXN0ID0gbmV3IMk9PD4oxi0uYXPEECgib25lIiwgInR3b8UHaHJlZSIpKTsKU3lzdGVtLm91dC5wcmludGxuKMRRLmdldCgwxCHFDnPEDiwgInplcm8i3zbENg%253D%253D"></iframe>
+        <li class="fragment">Note that the <code>set</code> method takes two arguments: the index to set and the value to set it to.</li>
+      </section>
+
+      <section>
+        <h3><code>remove</code></h3>
+        <li>The are two ways we can remove an element from a list:</li>
+        <li>First, specifying an index:</li>
+          <iframe width="100%" height="280" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=8&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF53BxzOwoKxCA8U3RyaW5nPiBsaXN0ID0gbmV3IMk9PD4oxi0uYXPEECgib25lIiwgInR3b8UHaHJlZSIpKTsKxD4ucmVtb3ZlKDEpOwpTeXN0ZW0ub3V0LnByaW50bG4oxCMpOw%253D%253D"></iframe>
+      </section>
+
+      <section>
+        <h3><code>remove</code></h3>
+        <li>Second, by specifying the element we want to remove.</li>
+        <iframe width="100%" height="380" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=12&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF53BxzOwoKxCA8U3RyaW5nPiBsaXN0ID0gbmV3IMk9PD4oxi0uYXPEECgib25lIiwgInR3b8UHaHJlZSIpKTsKxD4ucmVtb3ZlxiUpOwpTeXN0ZW0ub3V0LnByaW50bG4oxCcpOw%253D%253D"></iframe>
+        <div class="fragment">
+          <li>If you try to remove an element that is not in the <code>List</code>, nothing will happen.</li>
+          <li><code>remove</code> actually returns a <code>boolean</code> representing whether the removal was successful or not.</li>
+        </div>
+      </section>
+
+
+      <section>
+        <h3>Boxing</h3>
+        <li>What if we want our list to store integers? Notice that doing <code>List&ltint&gt</code> fails:</li> 
+        <iframe width="100%" height="240" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=5&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF5xhwKxAc8aW50PiBsaXN0ID0gbmV3IMkhPD4oKTs%253D"></iframe>
+        <li class="fragment">This is because a <code>List</code> can only store objects but <code>int</code> is a primitive type.</li>
+      </section>
+
+      <section>
+        <h3>Boxing</h3>
+        <li>So, in order to store integers, we have to use the <code>Integer</code> class, which "boxes" the <code>int</code> primitive type into an object.</li> 
+        <iframe width="100%" height="280" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=10&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF5xhwKxAc8SW50ZWdlcj4gbGlzdCA9IG5ldyDJJTw%252BKCk7CsQaLmFkZCg1zA0zKTsKU3lzdGVtLm91dC5wcmludGxuKMQgKTs%253D"></iframe>
+        <div>
+          <li>There are "boxing" classes for all the primitive types, including <code>Double</code>, <code>Character</code>, <code>Boolean</code>, and <code>Float</code>.</li>
+        </div>
+      </section>
+
+      <section>
+        <h3>Iterating over a <code>List</code></h3>
+        <li>The easiest way to iterate over a <code>List</code> is by using an enhanced <code>for</code> loop:</li>
+        <iframe width="100%" height="380" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=9&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF53BxzOwoKxCA8SW50ZWdlcj4gbGlzdCA9IG5ldyDJPjw%252BKMYuLmFzxBAoMSwgMywgNSwgNykpOwpmb3IgKGludCBuIDrFQCkgewogIFN5c3RlbS5vdXQucHJpbnRsbihuKTsKfQ%253D%253D"></iframe>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/math/math.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      backgroundTransition: 'none', // none/fade/slide/convex/concave/zoom
+      history: true,
+      slideNumber: 'h.v',
+      margin: 0.04,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+    });
+  </script>
+</body>
+
+</html>
