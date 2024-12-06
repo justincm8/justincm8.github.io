@@ -178,6 +178,20 @@
         <iframe width="100%" height="380" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=9&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF53BxzOwoKxCA8SW50ZWdlcj4gbGlzdCA9IG5ldyDJPjw%252BKMYuLmFzxBAoMSwgMywgNSwgNykpOwpmb3IgKGludCBuIDrFQCkgewogIFN5c3RlbS5vdXQucHJpbnRsbihuKTsKfQ%253D%253D"></iframe>
       </section>
 
+      <section>
+        <h3>Concurrent Modification</h3>
+        <li>Suppose that we want to remove the negative values from a list of <code>Double</code>s.</li>
+        <li>Your first thought might be to try doing something like this:</li>
+        <iframe width="100%" height="420" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=12&id=7675b456-8fc1-414a-af60-25ed8c91a090&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF53BxzOwoKxCA8RG91YmxlPiB2YWx1ZXMgPSBuZXcgyT88PijGLy5hc8QQKC0xLjMsIDQuNSwgMjLEBi01LjYsIDcuNykpOwoKZm9yIChkxVMgeCA6x1YpIHsKICBpZiAoeCA8IDDGDyDHHS5yZW1vdmUoeCk7CiAgfQp9"></iframe>
+        <li class="fragment">An error? Trying to remove elements while iterating over a list will produce a <code>ConcurrentModificationException</code>.</li>
+      </section>
+
+      <section>
+        <h3>Concurrent Modification</h3>
+        <li>Instead, create a new list to keep track of the elements you want to remove, then iterate over this new list and remove its elements from the original.</li>
+        <iframe width="100%" height="480" frameBorder="none" data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=18&id=40f157cb-1d88-42b8-a63e-bcc8594807c6&contents=aW1wb3J0IGphdmEudXRpbC5MaXN0OwrRF0FycmF53BxzOwoKxCA8RG91YmxlPiB2YWx1ZXMgPSBuZXcgyT88PijGLy5hc8QQKC0xLjMsIDQuNSwgMjLEBi01LjYsIDcuNykpO85SdG9SZW1vdmXTVCk7Cgpmb3IgKGTFLCB4IDrnAIEpIHsKICBpZiAoeCA8IDDGDyDJTC5hZGQoeCk7CiAgfQp9zkVyxSJNZSA6yS%252FGP8ZaLsYgKMgnKTvEQVN5c3RlbS5vdXQucHJpbnRsbijGLyk7"></iframe>
+      </section>
+
     </div>
   </div>
 
