@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>reveal.js</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/black.css">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css">
+  <style>
+    section {
+      text-align: left;
+    }
+
+    p,
+    ul,
+    ol,
+    li {
+      font-size: 20pt;
+    }
+
+    aside ul,
+    ol {
+      font-size: 18pt;
+    }
+
+    code {
+      color: orchid;
+    }
+
+    b {
+      color: #FF7518;
+    }
+
+    .row {
+      display: flex;
+    }
+
+    .column {
+      flex: 50%
+    }
+
+    tr,
+    td {
+      font-size: 24px;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+      <section>
+        <h1>§3.G.1. Trees</h1>
+        <p style="font-size: 12pt">Adapted from <a href="https://www.learncs.online/lessons/java/trees"
+            target="_blank">Trees</a>.</p>
+      </section>
+
+
+      <section>
+        <h3>Linked Data Structures</h3>
+        <li>In our dynamic, linked data structures that we have seen so far (linked list),
+          each node had a reference to just one other node.
+        </li>
+        <img data-src="linked-list.png">
+      </section>
+
+      <section>
+        <h3>Trees</h3>
+        <li>We can generalize this idea by allowing nodes to be connected to <em>multiple</em> other nodes.</li>
+        <li class="fragment">If these connections do not form a loop, the data structure is called a <b>tree</b>.</li>
+        <li class="fragment">This is a special case of the more general data structure <b>graphs</b>, which do allow for
+          loops.</li>
+
+        <img data-src="tree.png" width="70%">
+      </section>
+
+      <section>
+        <h3>What can Trees represent?</h3>
+        <li>A file system on a computer.</li>
+        <li>The <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/package-tree.html" target="_blank">Java
+            Class Hierarchy</a></li>
+      </section>
+
+      <section>
+        <h3>Binary Trees</h3>
+        <li>A <b>binary tree</b> is a special case of a tree where each node has at most two children: a
+          <b>left-child</b> and a <b>right-child</b>.</li>
+        <div class="row">
+          <div class="column" style="flex: 20%">
+            <img data-src="binary-tree.png" width="100%">
+          </div>
+          <div class="column">
+            <li class="fragment">If node A has node B has a child, node A is said to be node B's <b>parent</b>.</li>
+            <li class="fragment">The highest node in the hierarchy is the <b>root</b> node of the tree.</li>
+            <li class="fragment">Nodes that have no children are said to be <b>leaf</b> nodes.</li>
+            <li class="fragment">A <b>subtree</b> is a smaller tree that is part of a larger tree.</li>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Binary Tree Implementation</h3>
+        <li>Here's a simple implementation of a binary tree.</li>
+        <li>Noticed that we've dispensed with the <code>Node</code> class. Instead, each <code>BinaryTree</code>
+          contains references to two other <code>BinaryTree</code>s.</li>
+        <iframe width="100%" height="480" frameBorder="none"
+          src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&hideOutput=true&editorHeight=16&id=f81ba34b-bfab-4954-9572-f29da13f3b10&contents=cHVibGljIGNsYXNzIEJpbmFyeVRyZWU8RT4gewogIHByaXZhdGUgRSB2YWx1ZTvLE8otIGxlZnTXG3JpZ2jFHMQfxmzKHijHVynFbCAgdGhpcy7FEiA9ynF93z4syxTkALjkAI7QFOUAh95nxxjEPiA96QDTxxbFQCA96gDP7gCVT2JqZWN0IGdldFbETyjIanJldHVybv8Ay%252BcAo2dldExlZnTQPOgAid87UuQAmdA86wCufQ%253D%253D"></iframe>
+      </section>
+
+      <section>
+        <section>
+          <h3>Binary Trees and Recursion</h3>
+          <li>Let's try to write a recursive algorithm that caclulates the sum of the values stored in a binary tree.
+          </li>
+          <iframe width="100%" height="490" frameBorder="none" src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=18&id=b8049ad8-1c72-4676-9647-e67c3678edf6&contents=aW1wb3J0IGNzMTI1LnRyZWVzLkJpbmFyeVRyZWU7CgppbnQgYskRU3VtKMofPEludGVnZXI%252BIMQ5KSB7CiAgcmV0dXJuIDA7Cn0K2CogPSBuZXcgyx8%252BKDEsIDIsIDUpOwphc3NlctB1xmE9PSA4Ow%253D%253D"></iframe>
+        </section>
+        <section>
+          <iframe width="100%" height="520" frameBorder="none"
+            data-src="https://maier-jeed-run-www.vercel.app?embed=true&language=java&editorHeight=20&contents=aW1wb3J0IGNzMTI1LnRyZWVzLkJpbmFyeVRyZWU7CgppbnQgYskRU3VtKMofPEludGVnZXI%252BIMQ5KSB7CiAgaWYgKMQOID09IG51bGzGFiAgcmV0dXJuIDA7CiAgfcQobnQgc3VtID3FPC5nZXRWYWx1ZSgpxCHIRcQXTGVmdCgpICHOT8Q7Kz3vAJrOM8VKxWvLTlJpZ2jfT9FPxzTJUOcAy3N1bTsKfQr4AQ8gPSBuZXcgyx8%252BKDEsIDIsIDUpOwphc3NlcvABWsQ3KeQBOTg7"></iframe>
+        </section>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/math/math.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      backgroundTransition: 'none', // none/fade/slide/convex/concave/zoom
+      history: true,
+      slideNumber: 'h.v',
+      margin: 0.04,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+    });
+  </script>
+</body>
+
+</html>
